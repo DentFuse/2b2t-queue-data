@@ -11,15 +11,17 @@ function main() {
 	setTimeout(end, 24 * 60 * 60 * 1000, interval);
 }
 
-async function getData() {
+async function getData(tryNo) {
+	if(!tryNo) tryNo = 1;
+	if(tryNo == 4) out[moment().format('hh:mm:ss A')] = { players: 0, queue: 0 };
 	try {
 		res = await got(url);
 		body = JSON.parse(res.body);
 		console.log(body.players);
 		out[moment().format('hh:mm:ss A')] = { players: body.players.online, queue: body.players.online - 260 };
 	} catch (e) {
-		error = 
 		console.error('ERROR: ' + e);
+		getData(tryNo++);
 	}
 }
 
