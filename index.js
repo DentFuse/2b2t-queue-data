@@ -7,7 +7,7 @@ out = {};
 
 function main() {
 	getData();
-	interval = setInterval(getData, 10 * 1000);
+	interval = setInterval(getData, 5 * 60 * 1000);
 	setTimeout(end, 24 * 60 * 60 * 1000, interval);
 }
 
