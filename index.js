@@ -29,7 +29,7 @@ function end(interval) {
 	clearInterval(interval);
 	// console.log(out);
 	out = JSON.stringify(out);
-	fs.writeFileSync('out.json', out);
+	fs.writeFileSync('out1.json', out);
 }
 
 main();
